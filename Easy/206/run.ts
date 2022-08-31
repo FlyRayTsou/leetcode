@@ -10,10 +10,10 @@
  * }
  */
 
-// Runtime: 127 ms, faster than 17.11% of TypeScript online submissions for Reverse Linked List.
-// Memory Usage: 45.3 MB, less than 38.97% of TypeScript online submissions for Reverse Linked List.
+// Runtime: 71 ms, faster than 95.99% of TypeScript online submissions for Reverse Linked List.
+// Memory Usage: 45.6 MB, less than 8.28% of TypeScript online submissions for Reverse Linked List.
 function reverseList(head: ListNode | null): ListNode | null {
-    if (head === null || head.next === null) return head;
+    if (head === null) return head;
     let answer = null;
     return reverse(null, head, answer);
 };
