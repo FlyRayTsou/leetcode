@@ -24,6 +24,11 @@ function kthSmallest(root: TreeNode | null, k: number): number {
             result.push(curNode.val);
             curNode = curNode.right;
         }
+        // Runtime: 136 ms, faster than 32.51% of TypeScript online submissions for Kth Smallest Element in a BST.
+        // Memory Usage: 48.8 MB, less than 74.49% of TypeScript online submissions for Kth Smallest Element in a BST.
+        if (result.length === k) {
+            break;
+        }
     }
     return result[k-1];
 };
