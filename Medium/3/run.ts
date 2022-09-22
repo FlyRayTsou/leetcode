@@ -3,8 +3,6 @@
 function lengthOfLongestSubstring(s: string): number {
     let curString = '';
     let max = 0;
-    console.log(s);
-    console.log(s.length);
     for(let i = 0; i < s.length; i++) {
         curString = s[i];
         for (let j = i+1; j < s.length; j++) {
