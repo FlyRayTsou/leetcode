@@ -27,3 +27,23 @@ function inorder(node: TreeNode | null, result: number[]) {
         inorder(node.right, result);
     }
 }
+
+
+// Runtime: 96 ms, faster than 61.97% of TypeScript online submissions for Binary Tree Inorder Traversal.
+// Memory Usage: 44.6 MB, less than 35.68% of TypeScript online submissions for Binary Tree Inorder Traversal.
+function iterativelyInorderTraversal(root: TreeNode | null): number[] {
+    let result = [];
+    let curNode = root;
+    let stack = [];
+    while (curNode !== null || stack.length > 0) {
+        if (curNode !== null) {
+            stack.push(curNode);
+            curNode = curNode.left;    
+        } else {
+            const popNode = stack.pop();
+            result.push(popNode.val);
+            curNode = popNode.right;
+        }
+    }
+    return result;
+};
