@@ -13,3 +13,24 @@ function preorder(node: TreeNode | null, result: number[]) {
         preorder(node.right, result);
     }
 }
+
+// Runtime: 77 ms, faster than 80.61% of TypeScript online submissions for Binary Tree Preorder Traversal.
+// Memory Usage: 44.8 MB, less than 28.52% of TypeScript online submissions for Binary Tree Preorder Traversal.
+function iteratePreorder(root: TreeNode | null): number[] {
+    let result = [];
+    let stack = [];
+    let curNode = root;
+    while (curNode !== null || stack.length > 0) {
+        if (curNode !== null) {
+            result.push(curNode.val);
+            if (curNode.right !== null) {
+                stack.push(curNode.right);    
+            }
+            curNode = curNode.left;            
+        } else {
+            const popNode = stack.pop();
+            curNode = popNode;
+        }
+    }
+    return result;
+}
