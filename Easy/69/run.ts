@@ -20,3 +20,20 @@ function mySqrt(x: number): number {
     }
     return lowBound;
 };
+
+// Runtime: 138 ms, faster than 48.95% of TypeScript online submissions for Sqrt(x).
+// Memory Usage: 45.1 MB, less than 36.13% of TypeScript online submissions for Sqrt(x).
+function mySqrt2(x: number): number {
+    return bs(0, Math.ceil(x/2), x);
+};
+
+function bs(l: number, h: number, x: number): number {
+    let mid = Math.floor((l + h)/2);
+    if (mid ** 2 === x) return mid;
+    if (l>h) return h;
+    if (mid ** 2 > x) {
+        return bs(l, mid-1, x);
+    } else (mid ** 2 < x) {
+        return bs(mid+1, h, x);
+    }
+}
