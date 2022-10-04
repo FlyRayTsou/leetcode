@@ -31,3 +31,32 @@ function checkSum(node: TreeNode | null, targetSum: number, curSum): boolean {
     }
     return result;
 }
+
+// BFS
+// Runtime: 139 ms, faster than 17.91% of TypeScript online submissions for Path Sum.
+// Memory Usage: 47.3 MB, less than 14.93% of TypeScript online submissions for Path Sum.
+function hasPathSum2(root: TreeNode | null, targetSum: number): boolean {
+    if (root === null) return false;
+    let queue = [root];
+    let valQueue = [root.val];
+    let result = false;
+    while(queue.length > 0) {
+        let popNode = queue.shift();
+        let popVal = valQueue.shift();
+        if (popNode.left === null && popNode.right === null) {
+            if (popVal === targetSum) {
+                result = true;
+                break;
+            }
+        }
+        if (popNode.left !== null) {
+            queue.push(popNode.left);
+            valQueue.push(popVal + popNode.left.val);
+        }
+        if (popNode.right !== null) {
+            queue.push(popNode.right);
+            valQueue.push(popVal + popNode.right.val);
+        }   
+    }
+    return result;
+};
