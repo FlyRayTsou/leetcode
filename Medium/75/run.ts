@@ -32,3 +32,30 @@ function sortColors2(nums: number[]): void {
         hashMap.set(assignVal, hashMap.get(assignVal)-1);
     }
 };
+
+// Runtime: 110 ms, faster than 37.96% of TypeScript online submissions for Sort Colors.
+// Memory Usage: 44.2 MB, less than 27.47% of TypeScript online submissions for Sort Colors.
+function sortColors3(nums: number[]): void {
+    let left = 0;
+    let right = nums.length-1;
+    let current = 0;
+    while (current <= right) {
+        switch (nums[current]) {
+            case 0:
+                swap(left, current, nums);
+                left++;
+                current++;
+                break;
+            case 1:
+                current++;
+                break;
+            case 2:
+                swap(right, current, nums);
+                right--;
+                break;
+        }
+    }
+};
+function swap(a: number, b: number, nums: number[]): void {
+    [nums[b], nums[a]] = [nums[a], nums[b]]
+}
