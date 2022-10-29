@@ -36,3 +36,15 @@ function titleToNumber(columnTitle: string): number {
     }
     return result;
 };
+
+// Runtime: 123 ms, faster than 70.30% of TypeScript online submissions for Excel Sheet Column Number.
+// Memory Usage: 44.9 MB, less than 68.32% of TypeScript online submissions for Excel Sheet Column Number.
+function titleToNumber2(columnTitle: string): number {
+    let result = 0;
+    for (let i = columnTitle.length-1; i >= 0; i--) {
+        let count = columnTitle.length - i - 1;
+        let alphaValue = columnTitle.charCodeAt(i) - 64;
+        result = result + alphaValue * 26 ** count
+    }
+    return result;
+};
