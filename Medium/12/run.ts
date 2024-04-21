@@ -1,6 +1,8 @@
 /*
  * Runtime 115 ms Beats 68.55% of users with TypeScript
  * Memory 54.95 MB Beats 98.18% of users with TypeScript
+ * https://leetcode.com/problems/integer-to-roman/solutions/3114050/js-ts-clean-and-easy-solution-beats-98-5/?envType=study-plan-v2&envId=top-interview-150
+ * https://leetcode.com/problems/integer-to-roman/solutions/6274/simple-solution/?envType=study-plan-v2&envId=top-interview-150
  */
 function intToRoman(num: number): string {
     const numString = num.toString()
