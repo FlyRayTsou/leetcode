@@ -8,7 +8,7 @@ function openLock(deadends: string[], target: string): number {
     let queue:[string, number][] = [["0000", 0]]
 
     while (queue.length > 0) {
-        let curr: [string, number] = queue.shift()
+        let curr: [string, number] = queue.shift() as [string, number]
         if (curr[0] === target) return curr[1]
         if (deadendsSet.has(curr[0])) continue
         if (seen.has(curr[0])) continue
