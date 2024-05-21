@@ -40,3 +40,23 @@ function dfs2(index: number, isAdd: boolean, nums: number[], result, curResult: 
     dfs2(index+1, false, nums, result, [...curResult])
     dfs2(index+1, true, nums, result, [...curResult]);
 }
+
+/*
+ * Runtime: 78 ms Beats 9.61% of users with TypeScript 
+ * Memory: 54.06 MB Beats 13.02% of users with TypeScript
+ */
+function subsets3(nums: number[]): number[][] {
+    let result: number[][] = []
+    getSubset3(nums, result, 0, [])
+    return result;
+};
+
+function getSubset3(nums: number[], result, currentIndex: number, currentSubset: number[]) {
+    if (currentIndex === nums.length) {
+        result.push(currentSubset)
+        return
+    }
+    getSubset3(nums, result, currentIndex+1, [...currentSubset])
+    currentSubset.push(nums[currentIndex])
+    getSubset3(nums, result, currentIndex+1, [...currentSubset])
+}
