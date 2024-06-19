@@ -11,7 +11,6 @@ function minDays(bloomDay: number[], m: number, k: number): number {
         let mid = Math.floor((start+end)/2);
         let adjacentCount = 0
         let bouquetsCount = 0;
-        console.log("open: ", start, end, mid)
         for (let i = 0; i < bloomDay.length; i++) {
             if (bloomDay[i] <= mid) {
                 adjacentCount = adjacentCount+1
