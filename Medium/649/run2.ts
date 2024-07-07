@@ -17,11 +17,11 @@ function predictPartyVictory(senate: string): string {
     while(queueR.length !== 0 && queueD.length !== 0) {
         let popR = queueR.shift()
         let popD = queueD.shift()
-        if (popR < popD) {
-            queueR.push(senateNum+popR)
+        if (popR! < popD!) {
+            queueR.push(senateNum++)
             continue;
         }
-        queueD.push(senateNum+popD)
+        queueD.push(senateNum++)
     }
     return queueR.length === 0 ? "Dire" : "Radiant";
 };
