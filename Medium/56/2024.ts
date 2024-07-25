@@ -18,3 +18,22 @@ function merge(intervals: number[][]): number[][] {
     }
     return result
 };
+
+
+/*
+ * Ref: https://www.youtube.com/watch?v=44H3cEC2fFM
+ * Runtime 90 ms Beats 84.07%
+ * Memory 61.24 MB Beats 16.51%
+ */
+function merge2(intervals: number[][]): number[][] {
+    intervals.sort((a,b) => a[0] - b[0]);
+    const result: number[][] = [intervals[0]];
+    for (let [start, end] of intervals) {
+        if (start <= result[result.length-1][1]) {
+            result[result.length-1][1] = Math.max(result[result.length-1][1], end);
+        } else {
+            result.push([start, end]);
+        }
+    }
+    return result;
+};
