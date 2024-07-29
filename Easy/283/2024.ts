@@ -22,3 +22,25 @@
         }
     }
 };
+
+
+
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+/*
+ * Runtime 83 ms Beats 51.45%
+ * Memory 54.72 MB Beats 85.58%
+ */
+ function moveZeroes2(nums: number[]): void {
+    let curZeroIndex = 0;
+    for (let i = 0; i < nums.length; i++) {
+        while(curZeroIndex < nums.length && nums[curZeroIndex] !== 0) {
+            curZeroIndex++;
+        }
+        if (nums[i] !== 0 && i > curZeroIndex) {
+            [nums[i], nums[curZeroIndex]] = [nums[curZeroIndex], nums[i]];
+            curZeroIndex++;
+        }
+    }
+};
