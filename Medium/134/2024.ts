@@ -27,6 +27,7 @@ function canCompleteCircuit(gas: number[], cost: number[]): number {
 // sum of gas >= sum of cost
 // [ - ]  [ + ]
 /*
+ * Reference: https://www.youtube.com/watch?v=lJwbPZGo05A
  * Runtime 76 ms Beats 82.02%
  * Memory 61.57 MB Beats 34.96%
  */
