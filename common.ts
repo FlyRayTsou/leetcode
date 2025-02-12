@@ -16,3 +16,11 @@ function isPalindrome(s: string): boolean {
     }
     return result;
 }
+
+/*
+ * Convert Set to Array
+ * https://stackoverflow.com/questions/20069828/how-to-convert-set-to-array
+ */
+function convertSetToArray(set: Set<number>) {
+    return Array.from(set);
+}
