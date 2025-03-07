@@ -1,6 +1,7 @@
 /*
  * Runtime 58 ms Beats 71.02% 
  * Memory 58.28 MB Beats 16.51%
+ * Ref: https://leetcode.com/problems/counter-ii/solutions/3494650/day3-o-1-solving-it-in-3-different-ways-and-which-one-is-the-best-way/
  */
 type Counter = {
     increment: () => number,
