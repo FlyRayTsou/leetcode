@@ -1,6 +1,6 @@
 /*
- * Runtime 46 ms Beats 82.74%
- * Memory 55.13 MB Beats 23.17%
+ * Runtime 39 ms Beats 95.33%
+ * Memory 54.60 MB Beats 24.73%
  */
 class Calculator {
     result: number
@@ -9,26 +9,31 @@ class Calculator {
     }
     
     add(value: number): Calculator {
-        return new Calculator(this.result + value)
+        this.result = this.result + value
+        return this
     }
     
     subtract(value: number): Calculator {
-        return new Calculator(this.result - value)
+        this.result = this.result - value
+        return this
     }
     
     multiply(value: number): Calculator {
-        return new Calculator(this.result * value)
+        this.result = this.result * value
+        return this
     }
     
     divide(value: number): Calculator {
         if (value === 0) {
-            throw new Error("Division by zero is not allowed")
+            throw new RangeError("Division by zero is not allowed")
         }
-        return new Calculator(this.result / value)
+        this.result = this.result / value
+        return this
     }
     
     power(value: number): Calculator {
-        return new Calculator(Math.pow(this.result, value))
+        this.result = Math.pow(this.result, value)
+        return this
     }
     
     getResult(): number {
