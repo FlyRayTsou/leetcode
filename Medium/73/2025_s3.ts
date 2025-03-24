@@ -2,10 +2,10 @@
  Do not return anything, modify matrix in-place instead.
  */
 /*
- * Runtime 5 ms Beats 40.49%
- * Memory 59.20 MB Beats 48.91%
+ * Runtime 2 ms Beats 81.57%
+ * Memory 58.68 MB Beats 51.09%
  */
- function setZeroes(matrix: number[][]): void {
+function setZeroes(matrix: number[][]): void {
     const ySet: Set<number> = new Set();
     const xSet: Set<number> = new Set();
     let rootX = false
@@ -42,17 +42,14 @@
             }
         }
     }
-    if (rootX || rootY) {
-        if (rootY) {
-            for (let y = 0; y < matrix.length; y++) {
-                matrix[y][0] = 0
-            }
+    if (rootY) {
+        for (let y = 0; y < matrix.length; y++) {
+            matrix[y][0] = 0
         }
-        if (rootX) {
-            for (let x = 0; x < matrix[0].length; x++) {
-                matrix[0][x] = 0
-            }
+    }
+    if (rootX) {
+        for (let x = 0; x < matrix[0].length; x++) {
+            matrix[0][x] = 0
         }
-
     }
 };
