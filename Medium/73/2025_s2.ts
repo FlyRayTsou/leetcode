@@ -2,25 +2,28 @@
  Do not return anything, modify matrix in-place instead.
  */
 /*
- * Runtime 0 ms Beats 100.00% 
- * Memory 59.45 MB Beats 45.14%
+ * Runtime 1 ms Beats 95.79% 
+ * Memory 59.94 MB Beats 33.67%
  */
-
  function setZeroes(matrix: number[][]): void {
-    let zeroCoords: {y: number, x: number}[] = [];
+    const ySet: Set<number> = new Set();
+    const xSet: Set<number> = new Set();
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[0].length; x++) {
             if (matrix[y][x] === 0) {
-                zeroCoords.push({y, x})
+                ySet.add(y)
+                xSet.add(x)
             }
         }
     }
-    for (let i = 0; i < zeroCoords.length; i++) {
-        let { y, x } = zeroCoords[i];
-        for (let n = 0; n < matrix[0].length; n++) {
+    for (let n = 0; n < matrix[0].length; n++) {
+        for (const y of ySet) {
             matrix[y][n] = 0
         }
-        for (let m = 0; m < matrix.length; m++) {
+
+    }
+    for (let m = 0; m < matrix.length; m++) {
+        for (const x of xSet) {
             matrix[m][x] = 0
         }
     }
